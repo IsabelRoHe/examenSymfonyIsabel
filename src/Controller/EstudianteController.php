@@ -24,13 +24,9 @@ class EstudianteController extends AbstractController
     #[Route('/estudiante/{id}/notas', name: 'estudiante_notas', requirements: ['id' => '\d+'] , methods: ['GET'])]
     public function notas($id, EstudianteRepository $estudianteRepository, NotaRepository $notaRepository): Response
     {
-
         $estudiante = $estudianteRepository->find($id);
-        $notas = $notaRepository->findBy(['estudiante' => $id]);
-
         return $this->render('estudiante/notas.html.twig', [
-            'estudiante' => $estudiante,
-            'notas' => $notas,
+            'estudiante' => $estudiante
         ]);
     }
 }
