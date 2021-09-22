@@ -109,4 +109,19 @@ class Estudiante
 
         return $this;
     }
+
+    public function getNCursos(): int {
+        return count($this->getNotas());
+    }
+
+    public function getNotaMedia():float
+    {
+        $suma = 0;
+
+        foreach ($this->getNotas() as $nota) {
+            $suma = $suma + $nota->getNota();
+        }
+        
+        return $suma/$this->getNCursos();
+    }
 }

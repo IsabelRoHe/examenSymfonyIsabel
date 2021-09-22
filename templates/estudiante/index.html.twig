@@ -29,14 +29,8 @@
                 <td>{{ estudiante.nombre }}</td>
                 <td>{{ estudiante.apellido1 }}</td>
                 <td>{{ estudiante.apellido2 }}</td>
-                <td>{{ estudiante.notas|length }}</td>
-                <td>
-                    {% set media = 0 %}
-                    {% for nota in estudiante.notas %}
-                        {% set media = media + nota.nota %}
-                    {% endfor %}
-                    {{ media / estudiante.notas|length }}
-                </td>
+                <td>{{ estudiante.getNCursos }}</td>
+                <td>{{estudiante.getNotaMedia}}</td>
                 <td><a href="{{ path('estudiante_notas', {'id': estudiante.id}) }}">Ver Notas</a></td>
             </tr>
         {% endfor %}
