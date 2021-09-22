@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notas{% endblock %}
+
+{% block body %}
+
+<h1>Estudiante {{estudiante.nombre}} {{estudiante.apellido1}} {{estudiante.apellido2}}</h1>
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Duración (horas)</th>
+                <th>Nota</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for nota in estudiante.notas %}
+            <tr>
+                <td>{{ nota.curso.nombre }}</td>
+                <td>{{ nota.curso.duracion }}</td>
+                <td>{{ nota.nota }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {<a href="{{ path('estudiantes_index') }}">Volver al listado de alumnos</a></td>}
+
+{% endblock %}
